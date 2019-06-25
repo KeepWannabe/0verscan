@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+##############################################################
+# BITCOIN       : 37RkVq4vpVTqNvWch4wxEjSSKVfd9TF3e1
+# PAYPAL        : https://www.paypal.me/abdiprawiran
+# PERFECT MONEY : U15461128
+##############################################################
+##                    COLORING YOUR SHELL                   ##
+##############################################################
+white="\033[1;37m"                                          ##
+grey="\033[0;37m"                                           ##
+purple="\033[0;35m"                                         ##
+red="\033[1;31m"                                            ##
+green="\033[1;32m"                                          ##
+yellow="\033[1;33m"                                         ##
+purple="\033[0;35m"                                         ##
+cyan="\033[0;36m"                                           ##
+cafe="\033[0;33m"                                           ##
+fiuscha="\033[0;35m"                                        ##
+blue="\033[1;34m"                                           ##
+nc="\e[0m"                                                  ##
+##############################################################
+banner() {
+    printf "${white}                                                                 
+                                                                    
+ d8888b ?88   d8P d8888b  88bd88b${red} .d888b, d8888b d888b8b    88bd88b ${white}
+d8P' ?88d88  d8P'd8b_,dP  88P'  '${red} ?8b,   d8P' 'Pd8P' ?88    88P' ?8b${white}
+88b  d88?8b ,88' 88b     d88     ${red}   '?8b 88b    88b  ,88b  d88   88P${white}
+'?8888P''?888P'  '?888P'd88'     ${red}'?888P' '?888P''?88P''88bd88'   88b${white}
+
+${red}###########################################${white}
+Automated Subdomain Take0ver Scanning Tools
+by mindbl0w - IndoXploit
+${red}###########################################
+"
+}
+options() {
+    printf "
+    ${white}[${red}•${white}] Input Target : "
+    read target
+    printf "    ${white}[${red}•${white}] Set Timeout  : "
+    read timeout
+    printf "    ${white}[${red}•${white}] Set Threads  : "
+    read threads
+}
+subfinder_exec=$(subfinder -d $target -t $timeout -o $HOME/.0verscan/output/$target.txt)
+subover_exec=$(subover -a -l $HOME/.0verscan/output/$target.txt)
+scan_output() {
+    printf "${cyan}
+#######################################################
+##              ${white}SUBFINDER ENUMERATION                ${cyan}##
+#######################################################${white}\n"
+$subfinder_exec
+wait
+
+    printf "${cyan}
+#######################################################
+##                 ${white} SUBOVER SCANNING                ${cyan} ##
+#######################################################${white}\n"
+$subover_exec
+wait
+}
+banner
+options
+scan_output
+printf "[$green ✔$white ] Happy Hunting !   "

@@ -58,6 +58,8 @@ wait
 #######################################################${white}\n"
 $subover_exec
 wait
+
+printf " Finish - Subdomain Output at ${red}$HOME/.0verscan/output/$target.txt${white}\n"
 }
 banner
 options

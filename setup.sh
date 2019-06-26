@@ -46,12 +46,15 @@ checking_golang() {
     exit
     fi
 }
-install_1() {
-if [[ $(whoami) != "root" ]]
-then
-printf "            ${white}[•] ${red}This script must be run as root / sudo ${white}[•]\n"
+check_uid() {
+if [[ $(id -u) == 0 ]]; then
+install_1
+else
+printf "            ${white}[•] ${red}This script must be run with sudo ${white}[•]\n"
 exit
 fi
+}
+install_1() {
 sleep 2
 printf "${cyan}
 #######################################################
@@ -102,5 +105,5 @@ clear
 clear
 printf "\e[8;25;99t"
 banner
-install_1
+check_uid
 checking_golang

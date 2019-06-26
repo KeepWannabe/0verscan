@@ -61,8 +61,9 @@ sudo apt-get update
 wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
 sudo tar -xvf go1.12.6.linux-amd64.tar.gz
 sudo mv go /usr/local
-export GOROOT=/usr/local/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+echo "export GOPATH=$HOME/work" >> ~/.profile
+echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" >> ~/.profile
+source ~/.profile
 rm go1.12.6.linux-amd64.tar.gz
 echo -e "            [$green ✔$white ] Installing Go-Lang............................................"
 wait
@@ -87,15 +88,15 @@ printf "${cyan}
 #######################################################
 ##                 ${white}FINISHING 0VERSCAN               ${cyan} ##
 #######################################################${white}\n"
-mkdir $HOME/.0verscan && cp /snap/bin/amass /usr/bin/amass && cp $HOME/go/bin/subfinder /usr/bin/subfinder && cp $HOME/go/bin/providers.json $HOME/.0verscan/&& cp $HOME/go/bin/SubOver /usr/bin/subover && mkdir $HOME/.0verscan && cp 0verscan /usr/bin/0verscan && chmod +x /usr/bin/0verscan
+mkdir $HOME/.0verscan && cp /usr/local/go/bin/subfinder /usr/bin/subfinder && cp /usr/local/go/bin/providers.json $HOME/.0verscan/&& cp /usr/local/go/bin/SubOver /usr/bin/subover && mkdir $HOME/.0verscan && cp 0verscan /usr/bin/0verscan && chmod +x /usr/bin/0verscan
 wait
 
 sleep 2
-echo -e "            [$green ✔$white ] SubFinder";
+echo -e "[$green ✔$white ] SubFinder$green DONE$white";
 sleep 2
-echo -e "            [$green ✔$white ] SubOver";
+echo -e "[$green ✔$white ] SubOver$green DONE$white";
 sleep 2
-echo -e "            [$green ✔$white ] 0verscan";
+echo -e "[$green ✔$white ] 0verscan$green DONE$white";
 }
 clear
 clear
